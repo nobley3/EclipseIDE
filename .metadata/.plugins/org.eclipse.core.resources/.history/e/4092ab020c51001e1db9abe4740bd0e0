@@ -1,0 +1,11 @@
+package acorn;
+
+public class AcornService {
+
+	AcornDAO dao = new AcornDAO();
+	
+//	회원정보등록하는기능
+	 public void registerCstomer(Customer c) {
+		 dao.insert(c);
+	 }
+}

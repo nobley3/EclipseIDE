@@ -1,0 +1,88 @@
+package page;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class MemberDAO2 {
+
+	String driver = "oracle.jdbc.driver.OracleDriver";
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String user = "scott";
+	String password = "tiger";
+
+	public Connection dbcon() {
+		Connection con = null;
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url, user, password);
+			if (con != null)
+				System.out.println("ok");
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return con;
+	}
+	
+	public int getTotalCnt() {
+		
+		Connection con = dbcon();
+		String sql = "select count(*)from member_tbl_11"; //11
+		int totalCnt = 0;
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery(); //가져올게있으면 executeQuery
+			
+			if(rs.next()) {
+				totalCnt = rs.getInt(1); //첫번째 컬럼 int로 가져오는
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//close();
+		return totalCnt;
+	}
+	
+	public static void main(String[] args) {
+		MemberDAO2 dao = new MemberDAO2();
+		if(dao.dbcon()!=null) {
+			System.out.println("ok");
+		}
+		int result = dao.getTotalCnt();
+		System.out.println(result);
+	}
+	
+	public ArrayList<Member> selectAll(){
+		Connection con = dbcon();
+		ArrayList<Member> list = new ArrayList<>();
+		String sql = "select * from member_tbl_11";
+		ResultSet rs = null;
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				String m_id = rs.getString(1);
+				String m_pw = rs.getString(2);
+				String m_name = rs.getString(3);
+				String m_tel = rs.getString(4);
+				String m_birthday = rs.getString(5);
+				int m_point = rs.getInt(6);
+				String m_grade = rs.getString(7);
+				Member m = new Member(m_id,m_pw,m_name,m_tel,m_birthday,m_point,m_grade,)
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+}

@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<%
+Integer totalCnt = (Integer)request.getAttribute("totalCnt");
+Integer pageSize = (Integer)request.getAttribute("pageSize");
+Integer currentPage = (Integer)request.getAttribute("currentPage");
+Integer grpSize = (Integer)request.getAttribute("grpSize");
+
+out.println(totalCnt);
+out.println(pageSize);
+out.println(currentPage);
+out.println(grpSize);
+
+int totalPage = 0;
+int currentGrp = 0;
+int grpStartPage = 0;
+int grpEndPage = 0;
+
+//전체페이지 수 구하기
+int remain = totalCnt%pageSize;
+if(remain==0){
+	totalPage = totalCnt/pageSize;
+}else{
+	totalPage = totalCnt/pageSize+1;
+}
+
+//현재그룹 구하기, 현재페이지를 기준으로 현재그룹구하기
+int remain2 = currentPage/grpSize;
+if(remain2==0){
+	currentGrp = currentPage/grpSize;
+}else{
+	currentGrp = currentPage/grpSize+1;
+}
+%>
+</body>
+</html>

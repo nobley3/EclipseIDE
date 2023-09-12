@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	
+	let snack = {
+		name:"고래밥",
+		price:3800
+	};
+	console.log(snack);
+</script>
+</body>
+</html>

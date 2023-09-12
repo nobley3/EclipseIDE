@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+int currentPage = 1; //현재페이지
+if(request.getParameter("p")!=null){
+	currentPage = Integer.parseInt(request.getParameter("p"));
+}
+
+int totRecords = 73; //총레코드 수
+int pageSize = 10; // 목록의 개수
+int grpSize = 10; //
+
+int totalPage;
+int currentGrp = 0;
+
+//총페이지 수 구하기
+
+int reamin = totRecords % pageSize;
+if(reamin==0){
+	totalPage = totRecords/pageSize;
+}else{
+	totalPage = totRecords/pageSize+1;
+}
+
+int remain2 = currentPage%grpSize;
+if(remain2==0){
+	currentGrp = currentPage / grpSize;
+}else{
+	currentGrp = currentPage/grpSize+1;
+}
+
+int grpStartPage = (currentGrp-1)*grpSize+1;
+int grpEndPage = currentGrp * grpSize;
+
+if(grpEndPage>totalPage){
+	grpEndPage = totalPage;
+}
+
+int index = grpStartPage;
+if(currentGrp>1){
+%>
+<a href="paging.jsp?p=<%=index-1%>">[이전]</a>
+<%}
+
+while(index<=grpEndPage){
+%>
+<a href="/pageprj0911/paging.jsp?p=<%=index%>">[<%=index%>]</a>
+<%
+	index++;
+}
+if(grpEndPage<totalPage){%>
+<a href="/pageprj0911/paging.jsp?p=<%=grpEndPage+1%>">[다음]</a>
+<%}
+%>
+
+</body>
+</html>

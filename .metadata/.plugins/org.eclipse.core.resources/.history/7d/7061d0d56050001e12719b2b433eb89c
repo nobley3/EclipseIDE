@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<%Integer totalCnt = (Integer)request.getAttribute("totalCnt");
+Integer pageSize = (Integer)request.getAttribute("pageSize");
+Integer currentPage = (Integer)request.getAttribute("currentPage");
+Integer grpSize = (Integer)request.getAttribute("grpSize");
+
+out.println(totalCnt);
+out.println(pageSize);
+out.println(currentPage);
+out.println(grpSize);
+
+int totalPage = 0;
+int currentGrp = 0;
+int grpStartPage = 0;
+int grpEndPage = 0;
+
+int remain = totalCnt%pageSize;
+if(remain==0){
+	totalPage = totalCnt/pageSize;
+}else{
+	totalPage = totalCnt/pageSize+1;
+}
+%>
+</body>
+</html>

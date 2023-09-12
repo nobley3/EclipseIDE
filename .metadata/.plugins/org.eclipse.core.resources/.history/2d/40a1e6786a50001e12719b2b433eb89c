@@ -1,0 +1,21 @@
+package page;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+@WebServlet("/list3.page")
+public class ListPageServlet3 extends HttpServlet{
+@Override
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+	MemberDAO2  dao = new MemberDAO2();
+	
+//	현재페이지에 대한 목록 list
+//	페이징을 위한 값들 
+	req.getRequestDispatcher("WEB-INF/views/listPage3.jsp").forward(req, resp);
+}
+}

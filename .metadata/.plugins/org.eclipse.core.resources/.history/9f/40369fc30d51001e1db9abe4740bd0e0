@@ -1,0 +1,8 @@
+package acorn;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+@WebServlet("/errorHandle2")
+public class ExHandler extends HttpServlet{
+
+}

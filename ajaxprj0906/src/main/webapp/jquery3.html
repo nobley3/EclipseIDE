@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<script>
+		
+		//문서의 로드가 끝나는 시점에 script 와야한다.
+		window.addEventListener("load",function(){//콜백함수
+			//alert("load 완료")
+			let div = document.getElementById("wrap");
+			alert(div.innerHTML);
+		});
+		
+		
+	</script>
+	
+</head>
+
+<body>
+	<div id="wrap">aaa</div>
+	
+	
+</body>
+
+</html>

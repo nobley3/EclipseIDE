@@ -1,0 +1,34 @@
+package acorn;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class CalculatorTest {
+
+	Calculator cal = new Calculator();
+	@Test
+	void testSum() {
+		//fail("Not yet implemented");
+		assertEquals(5, cal.sum(3, 2));
+	}
+
+	@Test
+	void testSub() {
+		//fail("Not yet implemented");
+		assertEquals(10, cal.sub(30, 20));
+	}
+
+	@Test
+	void testMulti() {
+		//fail("Not yet implemented");
+		assertEquals(15, cal.multi(3, 5));
+	}
+
+	@Test
+	void testDiv() {
+		//fail("Not yet implemented");
+		assertEquals(10, cal.div(20,2));
+	}
+
+}

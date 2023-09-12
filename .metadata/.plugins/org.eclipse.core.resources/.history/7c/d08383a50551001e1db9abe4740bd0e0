@@ -1,0 +1,10 @@
+package acorn;
+
+public class AcornService {
+
+	AcornDAO dao = new AcornDAO();
+	
+	 public void registerCstomer(Customer c) {
+		 dao.insert(c);
+	 }
+}

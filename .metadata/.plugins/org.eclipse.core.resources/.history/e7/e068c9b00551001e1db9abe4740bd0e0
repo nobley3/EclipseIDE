@@ -1,0 +1,10 @@
+package acorn;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+@WebServlet("/acornReg")
+public class RegServlet extends HttpServlet{
+
+	
+	
+}

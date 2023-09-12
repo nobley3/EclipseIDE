@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="./css/택시예약등록.css" rel="stylesheet"/>
+<script>
+	function check(){
+		let frm=document.frm;
+		let reginum = frm.reginum;
+		let regitime = frm.regitime;
+		let regidate = frm.regidate;
+		let cusid = frm.cusid;
+		let departure =frm.departure;
+		let arrival = frm.arrival;
+		let taxinum = frm.taxinum;
+		let choose = frm.choose;
+		
+		if(reginum.value==""){
+			alert("예약번호를 입력하세요");
+			reginum.focus();
+			return false;
+		}else if(regitime.value==""){
+			alert("예약시간을 입력하세요");
+			regitime.focus();
+			return false;
+		}else if(regidate.value==""){
+			alert("예약날짜를 입력하세요");
+			regidate.focus();
+			return false;
+		}else if(cusid.value==""){
+			alert("아이디를 입력하세요");
+			cusid.focus();
+			return false;
+		}else if(departure.value==""){
+			alert("출발지를 입력하세요");
+			departure.focus();
+			return false;
+		}else if(arrival.value==""){
+			alert("도착지를 입력하세요");
+			arrival.focus();
+			return false;
+		}else if(taxinum.value==""){
+			alert("택시번호를 입력하세요");
+			taxinum.focus();
+			return false;
+		}
+		return true;
+	}	
+	
+</script>
+</head>
+<body>
+<form name="frm" action="taxi_action.jsp" method="post" onsubmit="return check()">
+	<table>
+		<caption>택시 예약 등록</caption>
+		<tr>
+			<td>예약번호</td>
+			<td><input type="text" name="reginum"></td>
+		</tr>
+		<tr>
+			<td>예약시간</td>
+			<td><input type="text" name="regitime"></td>
+		</tr>
+		<tr>
+			<td>예약날짜</td>
+			<td><input type="text" name="regidate"></td>
+		</tr>
+		
+		<tr>
+			<td>고객아이디</td>
+			<td><input type="text" name="cusid"></td>
+		</tr>
+		<tr>
+			<td>출발지</td>
+			<td><input type="text" name="departure"></td>
+		</tr>
+		<tr>
+			<td>목적지</td>
+			<td><input type="text" name="arrival"></td>
+		</tr>
+		<tr>
+			<td>택시번호</td>
+			<td><input type="text" name="taxinum"></td>
+		</tr>
+		<tr>
+			<td>배차상태</td>
+			<td><select name="choose">
+				<option value="">선택하기</option>
+				<option value="P">[P]배차완료</option>
+				<option value="R">[R]배차준비</option>
+				<option value="X">[X]배차미정</option>
+			</td>
+		</tr>
+		<tr>
+			<td colspan='2'>
+				<button>등록</button>
+				<button type="reset">다시입력</button>
+			</td>
+			
+		</tr>
+	</table>
+	
+	
+	
+</form>
+
+</body>
+</html>
