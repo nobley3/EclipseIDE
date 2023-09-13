@@ -45,9 +45,10 @@ public class DAO {
 	}
 	
 	public ArrayList<Customer> selectAll(){
-		Connection con = dbcon();
 		
+		Connection con = dbcon();
 		String sql="select * from acorntbl";
+		
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		ArrayList<Customer> list = new ArrayList<>();
