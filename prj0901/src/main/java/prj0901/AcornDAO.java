@@ -219,7 +219,7 @@ public class AcornDAO {
 		try {
 			pst = con.prepareStatement(sql);
 			pst.setString(1,c.getPw());
-			pst.setString(2, c.getId());
+			pst.setString(2,c.getId());
 			pst.executeUpdate();
 			
 		} catch (SQLException e) {

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class FoodDAO {
 	
 	  String driver = "oracle.jdbc.driver.OracleDriver" ;
-	  String url="jdbc:oracle:thin:@localhost:1521:xe";
+	  String url="jdbc:oracle:thin:@localhost:1521:dbtest";
 	  String user="scott";
 	  String password="tiger";	 
 	  
